@@ -4,22 +4,34 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #5A96E3;
+}
+
 #input{
+    background-color: black;
+    width: 100%;
+    height: 70px;
     padding: 10px;
-    margin: 20px;
+    /* margin: 20px; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;    
 }
 
 #name{
-    width: 40%;
-    height: 30px;
+    font-size: large;
+    margin-top: 5px;
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
 }
 
 #add{
-    width: 20%;
-    height: 30px;
+    margin-top: 5px;
+    width: 10%;
+    height: 40px;
+    border-radius: 5px;
 }
 
 #container{
@@ -32,13 +44,32 @@
 }
 
 #open,#inProgress,#inReview,#done{
+    background-color: #F1F6F9;
     padding: 5px;
     margin: 5px;
     border: 1px solid black;
+    border-radius: 5px;
     height: 40em;
     width: 20em;
+}
+
+#open > h3, #inProgress > h3, #inReview > h3, #done > h3{
+    width: 102.5%;
+    color: black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+li{
+    margin: -9px 10px 25px -20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    list-style: none;
+    font-size: 1.23rem;
+    border: 1px solid gray;
+    border-radius: 3px;
     display: flex;
-    justify-content: flex-start;
+    background-color: white;
 }
 
 #taskList{
