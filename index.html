@@ -6,33 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="App.js" defer></script>
+    <script src="drag.js" defer></script>
 </head>
 <body>
-    <div id="mainContainer">
-        <div id="input">
-            <input type="text" id="name" placeholder="Add Task" />
-            <button id="add" onclick="addTask()">Add</button>
-        </div>
-        
-        <div id="container">
-            <div id="open">
-                <h3>OPEN</h3>
-                <ul id="taskList"></ul>
+    <div class="board">
+        <form id="todo-form">
+            <input type="text" placeholder="Add Task ..." id="todo-input" />
+            <button type="submit">ADD +</button>
+        </form>
+
+        <div class="lanes">
+            <div class="swim-lane" id="open">
+                <h3 class="heading">OPEN</h3>
             </div>
-            <div id="inProgress">
-                <h3>IN PROGRESS</h3>
+
+            <div class="swim-lane">
+                <h3 class="heading">IN PROGRESS</h3>
             </div>
-            <div id="inReview">
-                <h3>IN REVIEW</h3>
+
+            <div class="swim-lane">
+                <h3 class="heading">IN REVIEW</h3>
             </div>
-            <div id="done">
-                <h3>DONE</h3>
+
+            <div class="swim-lane">
+                <h3 class="heading">DONE</h3>
             </div>
+
         </div>
     </div>
     
 </body>
-<script src="App.js"></script>
 </html>
 
 
