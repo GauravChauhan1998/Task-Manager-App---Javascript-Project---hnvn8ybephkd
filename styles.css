@@ -55,8 +55,8 @@
 .lanes{
     display: flex;
     align-items: flex-start;
-    justify-content: center;
-    gap: 7%;
+    justify-content: start;
+    gap: 8.5%;
 
     padding: 54px 32px;
 
@@ -80,7 +80,7 @@
 
     padding: 12px;
     border-radius: 4px;
-    width: 225px;
+    width: 300px;
     min-height: 120px;
 
     flex-shrink: 0;
