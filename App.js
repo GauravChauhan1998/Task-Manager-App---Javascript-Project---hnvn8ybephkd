@@ -1,28 +1,73 @@
-const form = document.getElementById("todo-form");
-const input = document.getElementById("todo-input");
-const todoLane = document.getElementById("open");
+// Create a unique ID for each task
+let taskId = 0;
 
-form.addEventListener("submit", (e) => {
-	e.preventDefault();
-	const value = input.value;
+// Create a task
+function createTask() {
+  const taskInput = document.getElementById('taskInput');
+  const taskDescription = taskInput.value;
 
-	if(!value) return;
+  if (taskDescription.trim() !== '') {
+    const task = document.createElement('div');
+    task.setAttribute('class', 'task');
+    task.setAttribute('id', `task${taskId}`);
+    task.setAttribute('draggable', 'true');
+    task.setAttribute('ondragstart', 'drag(event)');
+    task.innerHTML = taskDescription;
 
-	const newTask = document.createElement("p");
-	newTask.classList.add("task");
-	newTask.setAttribute("draggable", "true");
-	newTask.innerText = value;
+    // Open modal to edit task description when the task is clicked
+    task.addEventListener('click', () => openModal(task));
 
-	newTask.addEventListener("dragstart", () => {
-		newTask.classList.add("is-dragging");
-	});
+    document.getElementById('openSection').appendChild(task);
+    taskInput.value = '';
 
-	newTask.addEventListener("dragend", () => {
-		newTask.classList.remove("is-dragging");
-	});
+    taskId++;
+  }
+}
 
-	todoLane.appendChild(newTask);
+// Drag and drop functionality
+function allowDrop(event) {
+  event.preventDefault();
+}
 
-	input.value = "";
-});
+function drag(event) {
+  event.dataTransfer.setData('text/plain', event.target.id);
+}
 
+function drop(event, section) {
+  event.preventDefault();
+  const taskId = event.dataTransfer.getData('text/plain');
+  const task = document.getElementById(taskId);
+
+  // Move the task to the specified section
+  document.getElementById(section + 'Section').appendChild(task);
+}
+
+// Modal functionality
+function openModal(task) {
+  const modal = document.getElementById('taskModal');
+  const taskDescriptionInput = document.getElementById('taskDescription');
+  const saveButton = document.querySelector('#taskModal button');
+
+  // Set the current task description in the modal input
+  taskDescriptionInput.value = task.innerHTML;
+
+  // Save the updated task description when the Save button is clicked
+  saveButton.onclick = () => {
+    task.innerHTML = taskDescriptionInput.value;
+    closeModal();
+  };
+
+  modal.style.display = 'block';
+}
+
+function closeModal() {
+  const modal = document.getElementById('taskModal');
+  modal.style.display = 'none';
+}
+
+window.onclick = function (event) {
+  const modal = document.getElementById('taskModal');
+  if (event.target == modal) {
+    closeModal();
+  }
+};
