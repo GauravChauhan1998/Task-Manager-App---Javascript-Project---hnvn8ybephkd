@@ -1,6 +1,6 @@
 # Task Manager Application
 
-This is a Task Manager application built using HTML, CSS, and JavaScript. It allows users to create, manage, and track tasks through a user-friendly interface. The application includes the following features:
+This is a Task Manager application built using HTML, CSS, and JavaScript. It allows users to create, manage, and track tasks through a user-friendly interface.
 
 ## Steps to Use the Task Manager Application
 
